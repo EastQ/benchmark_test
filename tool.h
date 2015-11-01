@@ -1,5 +1,6 @@
 #ifndef __TOOL_H__
 #define __TOOL_H__
+
 class CProcessLock
 {
 public:
@@ -33,5 +34,6 @@ private:
 	int m_bLock;
 	pthread_mutex_t m_mutex;
 };
+
 #endif
 

@@ -53,9 +53,7 @@ void CAccessAttr::Report(int m_iFlag)
 		s_mapMinTimeStatistics[m_iFlag] = iPreTime;
 	}
 
-//	s_cProcessLock.WaitProcess();
 	s_mapCountStatistics[m_iFlag] += REPORT_DUE;	
-	//s_cProcessLock.Unlock();
 }
 
 void CAccessAttr::SetReportDue(int iDue)
@@ -84,10 +82,8 @@ int CAccessAttr::PrintfStatistics()
 	static std::map<int, unsigned long> report_switch_map2;
 	static int index = 0;
 
-//	s_cProcessLock.Lock();
 	report_switch_map1 = report_switch_map2;
 	report_switch_map2 = s_mapCountStatistics;
-//	s_cProcessLock.Unlock();
 	index ++;
 	printf("\n\nindex = %d\n", index);
 
@@ -208,9 +204,3 @@ int main()
 
         pthread_join(pid, NULL);
 }
-
-
-
-
-
-
